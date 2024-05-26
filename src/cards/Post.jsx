@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react'
-import { Button, Dimensions, FlatList, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Dimensions, FlatList, Image, Text, TouchableOpacity, View, StyleSheet } from 'react-native'
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 const jobData=[
     {
@@ -10,7 +11,7 @@ const jobData=[
         follow:false,
         designation:"Building Outscale",
         description:"Web Developers are required to be proficient at coding with languages like HTML, CSS, JavaScript for front-end development, and Python, Java, Ruby, and PHP for back-end programming. Knowledge of back-end languages is particularly useful for Full Stack Web Developers.",
-        id:1
+        id:1,
     },
      {
         name:"Kiran Kumar",
@@ -68,55 +69,81 @@ const jobData=[
     },
 ]
 
-function Post() {
-    const [follow,setFollow]=useState(false)
 
-    const handleFollow=()=>{
-        if(follow){
-            setFollow(false)
-        }
-        else{
-            setFollow(true)
-        }
+
+function Post({ numberOfLines = 2 }) {
+    const [follow, setFollow] = useState(false)
+    const [expandedPosts, setExpandedPosts] = useState({})
+
+    const handleToggle = (id) => {
+        setExpandedPosts(prevState => ({
+            ...prevState,
+            [id]: !prevState[id]
+        }))
     }
+
+    const handleFollow = () => {
+        setFollow(!follow)
+    }
+
     const renderItem = ({ item }) => (
         <View style={styles.container}>
             <View style={styles.firstRow}>
-
-            <View style={styles.box}>
-                <Image style={styles.profilePic} source={{ uri: item.image }} />
-                <View>
-                    <Text style={{fontSize:18,color:"black"}}>{item.name}</Text>
-                    <Text style={{color:"grey"}}>{item.designation}</Text>
-                </View>
+                <View style={styles.box}>
+                    <Image style={styles.profilePic} source={{ uri: item.image }} />
+                    <View>
+                        <Text style={{ fontSize: 18, color: "black" }}>{item.name}</Text>
+                        <Text style={{ color: "grey" }}>{item.designation}</Text>
+                    </View>
                 </View>
                 <TouchableOpacity onPress={handleFollow}>
-                    {follow?<Text style={styles.follow}>+ Follow</Text>:
-                     <Text style={styles.follow}>Following</Text>}
+                    {follow ? <Text style={styles.follow}>+ Follow</Text> :
+                        <Text style={styles.follow}>Following</Text>}
                 </TouchableOpacity>
             </View>
-
-            <Text style={{color:"black",fontWeight:"300",padding:screenWidth*.02}}>{item.description}</Text>
-
+            <View style={{paddingHorizontal:10}}>
+            <Text style={styles.discr} numberOfLines={expandedPosts[item.id] ? undefined : numberOfLines} ellipsizeMode="tail">
+                {item.description}
+            </Text>
+           
+            <TouchableOpacity onPress={() => handleToggle(item.id)}>
+                <Text style={styles.toggleText}>
+                    {expandedPosts[item.id] ? 'Read Less' : 'Read More'}
+                </Text>
+            </TouchableOpacity>
+             </View>
             <Image style={styles.post} source={{ uri: item.post }} />
             <View style={styles.count}>
                 <Text>Likes</Text>
                 <Text>Comments</Text>
             </View>
-
             <View style={styles.iconsBar}>
-            <View style={styles.icons}>
-               <Text>Like</Text>
-                <Text>Comment</Text>
-                 <Text>Repost</Text>
-                  <Text>Send</Text>
-                  </View>
+                <View style={styles.icons}>
+                <View style={styles.secondIcn}>
+                     <MaterialIcon name="thumb-up" color="black" size={14} />
+                    <Text style={{color:"black"}}>Like</Text>
+                </View>
+                <View style={styles.secondIcn}>
+                     <MaterialIcon name="comment" color="black" size={14} />
+                     <Text style={{color:"black"}}>Comment</Text>
+                </View>
+                <View style={styles.secondIcn}>
+                     <MaterialIcon name="repeat" color="black" size={14} />
+                    <Text style={{color:"black"}}>Repost</Text>
+                </View>
+                <View style={styles.secondIcn}>
+                     <MaterialIcon name="send" color="black" size={14} />
+                       <Text style={{color:"black"}}>Send</Text>
+                </View>
+                          
+                </View>
             </View>
+            <View style={styles.line}/>
         </View>
     )
 
     return (
-        <View >
+        <View>
             <FlatList
                 data={jobData}
                 renderItem={renderItem}
@@ -126,59 +153,76 @@ function Post() {
     )
 }
 
-const screenWidth=Dimensions.get("window").width
-const screenHeight=Dimensions.get("window").height
+const screenWidth = Dimensions.get("window").width
+const screenHeight = Dimensions.get("window").height
 
-const styles=StyleSheet.create({
-    firstRow:{
-    display:"flex",
-    paddingHorizontal:screenWidth*.027,
-    gap:5,
-    flexDirection:"row",
-    justifyContent:"space-between",
+const styles = StyleSheet.create({
+    container: {
+        padding: 0,
+        borderBottomWidth: 1,
+        borderBottomColor: '#ddd',
     },
-    container:{
-        paddingVertical:screenHeight*.03
+    firstRow: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingHorizontal:10,
+        marginTop:screenHeight*.014
     },
-    box:{
+    secondIcn:{
         display:"flex",
-        flexDirection:"row",
-        justifyContent:"space-between",
-        gap:screenWidth*.03
-
-    },
-    profilePic:{
-        width:screenWidth*.16,
-        height:screenHeight*.07,
-        borderRadius:100,
-    },
-    follow:{
-        display:"flex",
-        fontSize:16,
-        padding:7,
-        color:"blue"
-    },
-    post:{
-        width:"100%",
-        height:screenHeight*.5
-    },
-    iconsBar:{
         justifyContent:"center",
         alignItems:"center"
     },
-    count:{
-        display:"flex",
-        flexDirection:"row",
-        padding:10,
-        justifyContent:"space-between"
+    box: {
+        flexDirection: 'row',
+        alignItems: 'center',
     },
-    icons:{
-        display:"flex",
-        padding:10,
-        width:"90%",
-        flexDirection:"row",
-        justifyContent:"space-between",
-    }
+    line:{
+        borderWidth:3,
+        borderColor:"#DADADA"
+
+    },
+    profilePic: {
+        width: 50,
+        height: 50,
+        borderRadius: 25,
+        marginRight: 10,
+    },
+    follow: {
+        color: 'blue',
+    },
+    discr: {
+        marginVertical: 10,
+        color:"grey"
+    },
+    toggleText: {
+        color: 'blue',
+    },
+    post: {
+        width: '100%',
+        height: screenWidth * 0.5,
+        marginVertical: 10,
+    },
+    count: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingHorizontal:10
+    },
+    iconsBar: {
+        borderTopWidth: 1,
+        borderTopColor: '#ddd',
+        padding: 10,
+        paddingHorizontal:10,
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+    },
+    icons: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: '100%',
+        paddingHorizontal:10
+    },
 })
 
 export default Post

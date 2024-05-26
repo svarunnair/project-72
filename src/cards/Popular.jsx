@@ -9,14 +9,14 @@ const popularData=[
         name:"Hitesh Choudary",
         backgroundImg:"https://thumbs.dreamstime.com/z/futuristic-illustration-book-cover-group-people-red-background-ai-generated-271568122.jpg",
         caption:"PAN India Job Opening",
-        followers:"23211"
+        followers:"23,211"
     },
      {
         image:"https://s3.amazonaws.com/media.mixrank.com/profilepic/5170374cee17b1b5887398c03f47506c",
         name:"Mitra Kumari",
         backgroundImg:"https://timelinecovers.pro/facebook-cover/download/group-hand-fist-on-business-meeting-facebook-cover.jpg",
         caption:"PAN India Job Opening",
-        followers:"23211"
+        followers:"23,211"
     },
 ]
 
@@ -38,8 +38,8 @@ function Popular() {
 
 <View style={styles.text}>
   <Text style={{color:"black",fontWeight:"600"}}>{item.name}</Text>
-  <Text>{item.caption}</Text>
-  <Text>{item.followers} subscribers</Text>
+  <Text style={{color:"grey"}}>{item.caption}</Text>
+  <Text style={{color:"grey"}}>{item.followers} subscribers</Text>
    </View>
     </View>
 ))}

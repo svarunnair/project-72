@@ -4,32 +4,39 @@ import { Text } from 'react-native'
 import Invitations from '../cards/Invitations'
 import Popular from '../cards/Popular'
 import SecondCard from '../cards/SecondCard'
+import Events from '../cards/Events'
+import Navbar from '../components/Navbar'
 
 function Networking() {
   return (
+    <View>
+     <Navbar/>
     <ScrollView style={styles.container}>
-    <View style={{borderWidth:2}}>
-     <View style={{display:"flex",flexDirection:"row",justifyContent:"space-between"}}>
+    
+    <View>
+   
+     <View style={{display:"flex",paddingTop:10,paddingHorizontal:10,flexDirection:"row",justifyContent:"space-between"}}>
       <Text style={{color:"black",fontSize:18}}>Manage my network.</Text>
       <Text style={{color:"black",fontSize:18}}>></Text>
       </View>
-   <View style={styles.wrap}></View>
+       <View style={styles.hr}/>
+ 
 {/* section */}
 <View style={styles.invitation}>
- <Text style={{color:"black",fontSize:15}}>Invitations</Text>
-  <Text style={{color:"black",fontSize:15}}>></Text>
+ <Text style={{color:"black",fontSize:18}}>Invitations({})</Text>
+  <Text style={{color:"black",fontSize:18}}>></Text>
 </View>
 <Invitations/>
 {/* section */}
     </View>
 
-<View style={styles.hr}/>
+
 
 <View>
 
 {/*  */}
 
-
+<View style={styles.hr}/>
 <View style={styles.popular}>
 
 <Text style={{fontSize:16,color:"black"}}>Popular people to follow across LinkedIn</Text>
@@ -43,16 +50,30 @@ function Networking() {
 </View>
 
  </View>
+ <View style={styles.hr}/>
 
 </View>
+ 
 
 {/* second section */}
 <View style={styles.sectionTwo}>
 
+
 <SecondCard/>
+<View style={styles.hr}/>
 </View>
+<Events/>
+<View style={styles.hr}/>
+{/* section */}
+<View style={styles.sectionTwo}>
+
+<SecondCard/>
+<View style={styles.hr}/>
+</View>
+
      
     </ScrollView>
+    </View>
   )
 }
 
@@ -64,7 +85,7 @@ container:{
     display:"flex",
     borderColor:"blue",
     gap:screenHeight*.04, 
-    borderWidth:3,
+
     backgroundColor:"white",
 },
 sectionTwo:{
@@ -75,9 +96,11 @@ sectionTwo:{
   
 },
 hr:{
-  borderWidth:3,
-  borderColor:"#C7D4D5",
-  width:screenWidth
+  borderWidth:4,
+  borderColor:"#DADADA",
+  width:screenWidth,
+  marginTop:screenWidth*.05,
+ 
 },
 section:{
   display:'flex',
@@ -92,14 +115,16 @@ inner:{
   
 },
 invitation:{
-    
+    borderWidth:.4,
     display:"flex",
+    padding:10,
     flexDirection:"row",
     justifyContent:"space-between"
 },
 popular:{
     display:"flex",
-    gap:10
+    gap:10,
+    padding:10
 },
 wrap:{
     display:"flex",

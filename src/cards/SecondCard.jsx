@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Dimensions, FlatList, Image, StyleSheet, Text, View } from 'react-native';
+import { Button, Dimensions, FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const data = [
     {
@@ -38,10 +38,14 @@ function SecondCard() {
         <View style={styles.container}>
             <Image style={styles.bcImg} source={{ uri: item.bgimg }} />
             <Image style={styles.img} source={{ uri: item.image }} />
-            <Text>{item.position}</Text>
-            <Text>{item.role}</Text>
+           <View style={styles.inner}>
+            <Text style={{fontWeight:"500",color:"black",fontSize:17}}>{item.position}</Text>
+            <Text style={styles.textAlign}>{item.role}</Text>
             <Text>Based on your profile</Text>
-            <Button title='Connect' />
+           <TouchableOpacity style={styles.btn}>
+            <Text style={{color:"blue"}}>Connect</Text>
+           </TouchableOpacity>
+        </View>
         </View>
     );
 
@@ -63,21 +67,39 @@ const screenHeight = Dimensions.get("window").height;
 
 const styles = StyleSheet.create({
     container: {
-  
+
+        borderWidth:.4,
         borderRadius: 10,
-        borderColor: "red",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-
         width: screenWidth * 0.45,
         backgroundColor: '#fff',  
+    },
+    inner:{
+        display:"flex",
+        justifyContent:"center",
+        alignItems:"center",
+        gap:10,
+        paddingVertical:10,
+        marginTop:10
     },
     list: {
         justifyContent: 'center',
         alignItems: 'center',
        
+    },
+    btn:{
+        borderWidth:1,
+        borderColor:"blue",
+        borderRadius:20,
+        padding:7,
+        width:screenWidth*.35,
+        display:"flex",
+        flexDirection:"column",
+        justifyContent:"center",
+        alignItems:"center"
     },
     outer: {
         display: "flex",
@@ -101,6 +123,9 @@ const styles = StyleSheet.create({
         height: screenHeight * 0.09,
         borderTopLeftRadius: 10,
         borderTopRightRadius: 10,
+    },
+    textAlign: {
+        textAlign: "center",
     },
     img: {
         width: screenHeight * 0.1,

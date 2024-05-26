@@ -21,7 +21,7 @@ const jobData=[
     },
 ]
 
-function JobPicker() {
+function SimilarJobs() {
   return (
     <View>
 
@@ -36,13 +36,14 @@ function JobPicker() {
              <Text style={{fontSize:17,fontWeight:"600",color:"black"}}>{item.name}</Text>
               <Text style={{fontWeight:"400",color:"black"}}>{item.role}</Text>
                <Text style={{fontWeight:"300",color:"black"}}>{item.location}</Text>
-<View style={styles.matches}>
+               <View style={styles.matches}>
                 <Image style={styles.proPic} source={{uri:"https://ashisheditz.com/wp-content/uploads/2023/11/nice-dp-pic-new.jpg"}}/>
                 <Text style={{color:"grey"}}>Your profile matches this job</Text>
                </View>
+
             </View>
             </View>
-              <MaterialIcon name="close" size={20} color="#000" />
+           <MaterialIcon name="close" size={20} color="#000" />
            
           
             </View>
@@ -72,8 +73,8 @@ const styles=StyleSheet.create({
     detail:{
         display:"flex",
         gap:3
-        
-    },proPic:{
+    },
+    proPic:{
         width:20,
         height:20,
         borderRadius:100,
@@ -98,4 +99,4 @@ const styles=StyleSheet.create({
     }
 })
 
-export default JobPicker
+export default SimilarJobs

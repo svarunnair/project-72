@@ -2,7 +2,7 @@ import { Icon } from '@rneui/base'
 import React from 'react'
 import { Dimensions, Image } from 'react-native'
 import { StyleSheet, Text, View } from 'react-native'
-
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 const data=[
     {
         name:"IBM",
@@ -23,28 +23,31 @@ function Invitations() {
   
 
     {data.map((item)=>(
+        <View style={styles.wrapMap}>
 <View style={styles.container}>
 
 <Image style={styles.img} source={{uri:item.image}}/>
 
 <View style={styles.textContainer}>
-    <Text>Newsletters.Monthly</Text>
+    <Text style={{color:"grey"}}>Newsletters.Monthly</Text>
 
     <View style={styles.text}>
- <Text style={{fontSize:17,fontWeight:"500"}}>{item.name} </Text>
-  <Text>invited you to subscribe to </Text>
-  <Text style={{fontSize:17,fontWeight:"500"}}>{item.subscribe} </Text>
+ <Text style={{fontSize:17,fontWeight:"500",color:"black"}}>{item.name} </Text>
+  <Text style={{color:"grey"}}>invited you to subscribe to </Text>
+  <Text style={{fontSize:17,fontWeight:"500",color:"black"}}>{item.subscribe} </Text>
     </View>
 
     <View>   
     </View>
 </View>
 <View style={styles.icon}>
-<Icon type='ionicon' name="close-circle-outline"></Icon>
-<Icon type='ionicon' name="close-circle-outline"></Icon>
+<MaterialIcon name="highlight-off" size={25} color="#000" />
+ <MaterialIcon name="check-circle-outline" size={25} color="#000" />
 </View>
 
 </View>
+        </View>
+
     ))}
 
     </View>
@@ -60,11 +63,15 @@ const styles=StyleSheet.create({
         flexDirection:"row",
         justifyContent:"space-between"
     },
-    textContainer:{
+    wrapMap:{
+      display:"flex",
+      flexDirection:"column",
       
     },
     outer:{
-        backgroundColor:"white"
+        backgroundColor:"white",
+        padding:10,
+        paddingVertical:screenHeight*.02
     },
     text:{
         maxWidth:screenWidth*.5,
