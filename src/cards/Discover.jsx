@@ -61,7 +61,8 @@ const screenHeight=Dimensions.get("window").height
 const styles=StyleSheet.create({
     img:{
         width:screenWidth*.15,
-        height:screenHeight*.08
+        height:screenHeight*.08,
+        borderRadius:100,
     },
     bgImg:{
         width:screenWidth*.25,

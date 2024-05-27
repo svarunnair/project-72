@@ -13,20 +13,30 @@ function AddPost() {
         <View style={{ display: 'flex', flexDirection: 'row' ,gap:10}}>
          <TouchableOpacity onPress={()=>navigate.navigate("Home")}>
         <MaterialIcon name="close" size={25} color="#000" />
+       
+      
        </TouchableOpacity>
+        <View style={styles.picWrap}>
           <Image style={styles.pic} source={{ uri: "https://ashisheditz.com/wp-content/uploads/2023/11/nice-dp-pic-new.jpg" }} />
-          <Text style={{ color: 'black', marginLeft: 10 }}>Anyone</Text>
+          <Text style={{ color: 'grey',fontWeight:"500", marginLeft: 10 }}>Anyone</Text>
+           <MaterialIcon name="keyboard-arrow-down" size={20} color="black" />
+       </View>
         </View>
-        <Icon type="ionicon" name="home-outline" />
+
+        <View style={styles.post}>
+       <MaterialIcon name="access-time" size={30} color="black" />
         <View style={styles.btn}>
           <Text style={{ color: 'black' }}>Post</Text>
         </View>
+        </View>
+
+
       </View>
       <TextInput
         style={styles.textInput}
         multiline
-        placeholder="Type your notes here..."
-        placeholderTextColor="black"
+        placeholder="Share your thoughts..."
+        placeholderTextColor="grey"
         textAlignVertical="top"
       />
       <View style={styles.footer}>
@@ -52,6 +62,18 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     padding: 10,
    
+  },post:{
+    display:"flex",
+    flexDirection:"row",
+    alignItems:"center",
+    gap:10
+  },
+  picWrap:{
+    
+    display:"flex",
+    flexDirection:"row",
+    justifyContent:"center",
+    alignItems:"center"
   },
   textInput: {
     flex: 1,
@@ -60,19 +82,22 @@ const styles = StyleSheet.create({
     color: '#000',
   },
   footer: {
-    borderTopWidth: 1,
+ 
     borderColor: '#ccc',
   },
   pic: {
-    width: screenWidth * 0.14,
-    height: screenWidth * 0.14,
+    width: screenWidth * 0.11,
+    height: screenWidth * 0.11,
     borderRadius: 100,
   },
   btn: {
-    padding: 10,
+    paddingHorizontal:10,
+    display:"flex",
+    justifyContent:"center",
+    alignItems:"center",
     borderRadius: 20,
-    borderWidth: 1,
-    height: screenHeight * 0.05,
+    paddingVertical:7,
+    backgroundColor:"#DCDFE1"
   },
 });
 

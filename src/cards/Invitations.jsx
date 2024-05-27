@@ -41,8 +41,8 @@ function Invitations() {
     </View>
 </View>
 <View style={styles.icon}>
-<MaterialIcon name="highlight-off" size={25} color="#000" />
- <MaterialIcon name="check-circle-outline" size={25} color="#000" />
+<MaterialIcon name="highlight-off" size={45} color="grey" />
+ <MaterialIcon name="check-circle-outline" size={45} color="#84C9FF" />
 </View>
 
 </View>
@@ -79,7 +79,11 @@ const styles=StyleSheet.create({
     icon:{
         display:"flex",
         flexDirection:"row",
-        gap:screenWidth*.1
+        justifyContent:"center",
+        alignItems:"center",
+        // gap:screenWidth*.1,
+        // borderWidth:1,
+        width:screenWidth*.2
     },
     img:{
         width:screenWidth*.2,

@@ -12,7 +12,7 @@ const popularData=[
         followers:"23,211"
     },
      {
-        image:"https://s3.amazonaws.com/media.mixrank.com/profilepic/5170374cee17b1b5887398c03f47506c",
+        image:"https://media.licdn.com/dms/image/D4D03AQGU-qksPT3_gw/profile-displayphoto-shrink_400_400/0/1714152901586?e=1722470400&v=beta&t=_ZQjiZK79PplJT1L0bHoOwILGd0-1kee5azgTQiLMEc",
         name:"Mitra Kumari",
         backgroundImg:"https://timelinecovers.pro/facebook-cover/download/group-hand-fist-on-business-meeting-facebook-cover.jpg",
         caption:"PAN India Job Opening",

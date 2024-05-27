@@ -21,7 +21,7 @@ function Jobs() {
   return (
     <View>
     <NavbarThree/>
-    <ScrollView>
+    <ScrollView style={styles.content}>
 
     <View style={styles.nav} >
         <Text style={styles.text}>My jobs</Text>
@@ -67,6 +67,9 @@ const styles=StyleSheet.create({
         paddingHorizontal:10,
         paddingVertical:5   ,
         backgroundColor:"#fff"  
+    },
+    content:{
+      marginBottom:screenHeight*.1
     },
     hr:{
       borderWidth:screenHeight*.007,

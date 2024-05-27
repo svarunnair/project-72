@@ -12,6 +12,7 @@ const jobData=[
         designation:"Building Outscale",
         description:"Web Developers are required to be proficient at coding with languages like HTML, CSS, JavaScript for front-end development, and Python, Java, Ruby, and PHP for back-end programming. Knowledge of back-end languages is particularly useful for Full Stack Web Developers.",
         id:1,
+        likes:"12,333"
     },
      {
         name:"Kiran Kumar",
@@ -20,7 +21,8 @@ const jobData=[
         follow:false,
         designation:"Google SD 1",
         description:"Web Developers are required to be proficient at coding with languages like HTML, CSS, JavaScript for front-end development, and Python, Java, Ruby, and PHP for back-end programming. Knowledge of back-end languages is particularly useful for Full Stack Web Developers.",
-        id:2
+        id:2,
+        likes:"123,333"
     },
      {
         name:"Arun",
@@ -29,7 +31,8 @@ const jobData=[
         follow:false,
         designation:"SD 2 at Intuit",
         description:"Web Developers are required to be proficient at coding with languages like HTML, CSS, JavaScript for front-end development, and Python, Java, Ruby, and PHP for back-end programming. Knowledge of back-end languages is particularly useful for Full Stack Web Developers.",
-        id:3
+        id:3,
+         likes:"1,333"
     },
      {
         name:"Jipson Jose",
@@ -38,7 +41,8 @@ const jobData=[
         follow:false,
         designation:"Civil Engineer",
         description:"Web Developers are required to be proficient at coding with languages like HTML, CSS, JavaScript for front-end development, and Python, Java, Ruby, and PHP for back-end programming. Knowledge of back-end languages is particularly useful for Full Stack Web Developers.",
-        id:4
+        id:4,
+          likes:"9,333"
     },
      {
         name:"Anu Jaz",
@@ -47,7 +51,8 @@ const jobData=[
         follow:false,
         designation:"Creative Outscale",
         description:"Web Developers are required to be proficient at coding with languages like HTML, CSS, JavaScript for front-end development, and Python, Java, Ruby, and PHP for back-end programming. Knowledge of back-end languages is particularly useful for Full Stack Web Developers.",
-        id:5
+        id:5,
+         likes:"9,33"
     },
      {
         name:"Varsha Mohan",
@@ -56,7 +61,9 @@ const jobData=[
         follow:false,
         designation:"Amazone SD 3",
         description:"Web Developers are required to be proficient at coding with languages like HTML, CSS, JavaScript for front-end development, and Python, Java, Ruby, and PHP for back-end programming. Knowledge of back-end languages is particularly useful for Full Stack Web Developers.",
-        id:6
+        id:6,
+        likes:"19,333"
+
     },
      {
         name:"Deeksha Chawla",
@@ -65,15 +72,17 @@ const jobData=[
         follow:false,
         designation:"Apple SD 2",
         description:"Web Developers are required to be proficient at coding with languages like HTML, CSS, JavaScript for front-end development, and Python, Java, Ruby, and PHP for back-end programming. Knowledge of back-end languages is particularly useful for Full Stack Web Developers.",
-        id:7
+        id:7,
+        likes:"139,333"
     },
 ]
 
 
 
 function Post({ numberOfLines = 2 }) {
-    const [follow, setFollow] = useState(false)
+      const [followedItems, setFollowedItems] = useState([]);
     const [expandedPosts, setExpandedPosts] = useState({})
+
 
     const handleToggle = (id) => {
         setExpandedPosts(prevState => ({
@@ -81,9 +90,12 @@ function Post({ numberOfLines = 2 }) {
             [id]: !prevState[id]
         }))
     }
-
-    const handleFollow = () => {
-        setFollow(!follow)
+const handleFollow = (id) => {
+        if (followedItems.includes(id)) {
+            setFollowedItems(prevItems => prevItems.filter(itemId => itemId !== id));
+        } else {
+            setFollowedItems(prevItems => [...prevItems, id]);
+        }
     }
 
     const renderItem = ({ item }) => (
@@ -96,9 +108,10 @@ function Post({ numberOfLines = 2 }) {
                         <Text style={{ color: "grey" }}>{item.designation}</Text>
                     </View>
                 </View>
-                <TouchableOpacity onPress={handleFollow}>
-                    {follow ? <Text style={styles.follow}>+ Follow</Text> :
-                        <Text style={styles.follow}>Following</Text>}
+               <TouchableOpacity onPress={() => handleFollow(item.id)}>
+                    <Text style={styles.follow}>
+                        {followedItems.includes(item.id) ? 'Following' : '+ Follow'}
+                    </Text>
                 </TouchableOpacity>
             </View>
             <View style={{paddingHorizontal:10}}>
@@ -114,8 +127,8 @@ function Post({ numberOfLines = 2 }) {
              </View>
             <Image style={styles.post} source={{ uri: item.post }} />
             <View style={styles.count}>
-                <Text>Likes</Text>
-                <Text>Comments</Text>
+                <Text style={{color:"grey"}}>{item.likes} Likes</Text>
+                <Text style={{color:"grey"}}>Comments</Text>
             </View>
             <View style={styles.iconsBar}>
                 <View style={styles.icons}>
@@ -143,7 +156,7 @@ function Post({ numberOfLines = 2 }) {
     )
 
     return (
-        <View>
+        <View style={styles.outer}>
             <FlatList
                 data={jobData}
                 renderItem={renderItem}
@@ -159,8 +172,12 @@ const screenHeight = Dimensions.get("window").height
 const styles = StyleSheet.create({
     container: {
         padding: 0,
+        backgroundColor:"#fff",
         borderBottomWidth: 1,
         borderBottomColor: '#ddd',
+    },
+    outer:{
+         marginBottom: screenHeight * 0.12 ,
     },
     firstRow: {
         flexDirection: 'row',

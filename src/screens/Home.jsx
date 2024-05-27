@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { Dimensions, ScrollView, StyleSheet, Text, View } from 'react-native'
 import Post from '../cards/Post'
 import Navbar from '../components/Navbar'
 
@@ -15,9 +15,11 @@ function Home() {
   )
 }
 
+const screenHeight=Dimensions.get('window').height
+
 const styles=StyleSheet.create({
     container:{
-       
+         marginBottom: screenHeight * 0.07 ,
     }
 })
 

@@ -92,7 +92,7 @@ const styles=StyleSheet.create({
         padding:20
     },
     control:{
-        
+       
         display:"flex",
         flexDirection:"row",
         gap:screenWidth*.05

@@ -58,7 +58,7 @@ const styles=StyleSheet.create({
     input:{
 
 width:"60%",
-height:screenHeight*.04,
+height:screenHeight*.05,
 backgroundColor:"#D9F0F3",
 borderRadius:7
     }

@@ -56,12 +56,14 @@ function Networking() {
  
 
 {/* second section */}
+<Text style={styles.textCard}>People you may know with similar roles</Text>
 <View style={styles.sectionTwo}>
 
 
 <SecondCard/>
 <View style={styles.hr}/>
 </View>
+<Text style={styles.textCard}>Online events for you</Text>
 <Events/>
 <View style={styles.hr}/>
 {/* section */}
@@ -85,7 +87,7 @@ container:{
     display:"flex",
     borderColor:"blue",
     gap:screenHeight*.04, 
-
+    marginBottom: screenHeight * 0.07 ,
     backgroundColor:"white",
 },
 sectionTwo:{
@@ -101,6 +103,13 @@ hr:{
   width:screenWidth,
   marginTop:screenWidth*.05,
  
+},
+textCard:{
+  fontSize:17,
+  color:"black",
+  paddingHorizontal:screenWidth*.04,
+  paddingTop:12,
+  fontWeight:"400"
 },
 section:{
   display:'flex',

@@ -4,13 +4,13 @@ import { Dimensions, Image, StyleSheet, View } from 'react-native'
 
 const eventData=[
     {
-        image:"https://i.pinimg.com/originals/89/f2/8f/89f28f565bd7ad312108796cec236a60.jpg",
+        image:"https://media.licdn.com/dms/image/D4D1EAQHqE8so-ZcTgQ/event-background-image-crop_720_1280/0/1699165995465?e=1717394400&v=beta&t=XqGInugrIOPei1CrSycxwCtM6UPbY3m0Nf6PzB65stk",
         name:"THE FUTURE & SAFE OF UAS/UAV/EVTOL/VTOL CARGO DRONES",
         date:"Thu May 30, 7:30 AM",
         vote:"7,898" 
         },
          {
-        image:"https://i.pinimg.com/originals/89/f2/8f/89f28f565bd7ad312108796cec236a60.jpg",
+        image:"https://media.licdn.com/dms/image/D561EAQFKSE--dNS8pA/event-background-image-crop_720_1280/0/1713266641734?e=1717394400&v=beta&t=l_YJUph-EwQSuT7Q3Eyi9qjlxomIJh2pFsaQ7NxnmqE",
         name:"The Enterpreneur Action Mastermind Experience T.E.A.M.X",
         date:"Fri Jun 20, 5:30 PM",
         vote:"5,598" 
@@ -30,9 +30,9 @@ function Events() {
       {/*  */}
       <View style={styles.text}>
              <View style={styles.firstbox}>
-              <Text>{item.name}</Text>
-               <Text>{item.date}</Text>
-               <Text>{item.vote} attendees</Text>
+              <Text style={styles.head}>{item.name}</Text>
+               <Text style={styles.name}>{item.date}</Text>
+               <Text style={styles.name}>{item.vote} attendees</Text>
               </View>
        <TouchableOpacity style={styles.btn}>
         <Text style={{color:"blue"}}>View</Text>
@@ -66,10 +66,15 @@ const screenHeight=Dimensions.get("window").height
 
 const styles=StyleSheet.create({
     container:{
-      
         padding:10,
-      
-
+    },
+    name:{
+      color:"grey",
+      padding:5
+    },
+    head:{
+       color:"black",
+      padding:5
     },
     seeall:{
       display:"flex",
