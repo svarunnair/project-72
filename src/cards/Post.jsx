@@ -81,7 +81,7 @@ const jobData=[
 
 function Post({ numberOfLines = 2 }) {
       const [followedItems, setFollowedItems] = useState([]);
-    const [expandedPosts, setExpandedPosts] = useState({})
+      const [expandedPosts, setExpandedPosts] = useState({})
 
 
     const handleToggle = (id) => {
@@ -100,6 +100,7 @@ const handleFollow = (id) => {
 
     const renderItem = ({ item }) => (
         <View style={styles.container}>
+         <View style={styles.line}/>
             <View style={styles.firstRow}>
                 <View style={styles.box}>
                     <Image style={styles.profilePic} source={{ uri: item.image }} />
@@ -151,7 +152,7 @@ const handleFollow = (id) => {
                           
                 </View>
             </View>
-            <View style={styles.line}/>
+           
         </View>
     )
 
@@ -177,7 +178,7 @@ const styles = StyleSheet.create({
         borderBottomColor: '#ddd',
     },
     outer:{
-         marginBottom: screenHeight * 0.12 ,
+         marginBottom: screenHeight * 0.08 ,
     },
     firstRow: {
         flexDirection: 'row',
@@ -196,7 +197,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     line:{
-        borderWidth:3,
+        borderWidth:4,
         borderColor:"#DADADA"
 
     },
@@ -224,7 +225,8 @@ const styles = StyleSheet.create({
     count: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        paddingHorizontal:10
+        paddingHorizontal:10,
+        padding:10
     },
     iconsBar: {
         borderTopWidth: 1,

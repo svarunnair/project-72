@@ -23,22 +23,26 @@ function MainRoutes() {
     <Tab.Navigator screenOptions={{
         tabBarStyle: {
           height: screenHeight*.07, 
+          padding:7
         },
         tabBarLabelStyle: {
           fontSize: 14, 
-          color:"grey"
+          color:"grey",
+          marginBottom:5,
+          
         },
         tabBarIconStyle: {
-          marginBottom: 5, 
+          
+
         },
       }}>
       <Tab.Screen name="Home" component={Home}  options={{ headerShown: false, tabBarIcon: ({ color, size }) => (
            <MaterialIcon name="home" color={color} size={size} />
           ), }} />
-      <Tab.Screen name="My Network" component={Networking} options={{ headerShown: false , tabBarIcon: ({ color, size }) => (
+      <Tab.Screen name="My Network" component={Networking} options={{ headerShown: false , tabBarIcon: ({ color, size, }) => (
             <MaterialIcon name="people" color={color} size={size} />
           ), }} />
-      <Tab.Screen name="Post" component={AddPost} options={{ headerShown: false , tabBarIcon: ({ color, size }) => (
+      <Tab.Screen name="Post"  component={AddPost} options={{ headerShown: false , tabBarIcon: ({ color, size }) => (
               <MaterialIcon name="add-box" color={color} size={size} />
           ), }} />
       <Tab.Screen name="Notification" component={Notification} options={{ headerShown: false , tabBarIcon: ({ color, size }) => (

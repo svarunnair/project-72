@@ -4,7 +4,7 @@ import React from 'react'
 import { Text } from 'react-native'
 import { Image, TextInput } from 'react-native'
 import { Dimensions, StyleSheet, View } from 'react-native'
-
+import Ionicons from 'react-native-vector-icons/Ionicons';
 function Navbar() {
 
  
@@ -12,11 +12,14 @@ function Navbar() {
   return (
     <View style={styles.container}>
 <Image style={styles.img} source={{uri:"https://i.guim.co.uk/img/media/4f7b8c41aa54314c7b130846ed91331c1b3f9de6/0_0_3744_2247/master/3744.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=13833b08e22edeb98fbca9885f2c6e8a"}}/>
-<TextInput style={styles.input} placeholder='Search'  placeholderTextColor="grey" />
-{/* <Icon name="setting" type="antdesign" size={30} /> */}
+<View style={styles.inputBox}>
+<Icon name="search" type="ionicons" size={25} />
+<TextInput style={styles.input} placeholder='Search jobs'  placeholderTextColor="grey" />
+</View>
+
 <View style={styles.icon}>
- 
-        <Icon name="message1" type="antdesign" size={26} />
+
+       <Ionicons name="chatbox-ellipses" size={26} color="gray" />
 
 </View>
      
@@ -33,18 +36,28 @@ const screenHeight=Dimensions.get("window").height
 
 const styles=StyleSheet.create({
     container:{
-      
+        
         display:"flex",
         flexDirection:"row",
         justifyContent:"space-between",
-        padding:20,
+        padding:10,
         alignItems:"center",
         backgroundColor:"white"
         
     },
+    inputBox:{
+        display:"flex",
+        flexDirection:"row",
+        backgroundColor:"#ECF3FA",
+        borderRadius:7,
+        alignItems:"center",
+        gap:2,
+        width:"75%"
+        
+    },
     img:{
-        width:screenWidth*.1,
-        height:screenHeight*.05,
+        width:screenWidth*.09,
+        height:screenHeight*.04,
         borderRadius:100
     },
     icon:{
@@ -53,14 +66,12 @@ const styles=StyleSheet.create({
         justifyContent:"center",
         alignItems:"center",
         gap:20
-
     },
     input:{
-
 width:"70%",
 height:screenHeight*.045,
-backgroundColor:"#D9F0F3",
-borderRadius:7
+backgroundColor:"#ECF3FA",
+
     }
 })
 

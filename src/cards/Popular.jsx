@@ -73,11 +73,15 @@ const styles=StyleSheet.create({
 
     },
     text:{
-        padding:3,
+        paddingHorizontal:5,
+        padding:1,
         paddingHorizontal:4,
+        flexWrap:"wrap",
         display:"flex",
         flexDirection:"column",
-        gap:10
+        gap:5,
+        marginBottom:20,
+        paddingLeft:10,
     },
     map:{
        borderWidth:.4,

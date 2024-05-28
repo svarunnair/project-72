@@ -6,6 +6,7 @@ import Popular from '../cards/Popular'
 import SecondCard from '../cards/SecondCard'
 import Events from '../cards/Events'
 import Navbar from '../components/Navbar'
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 function Networking() {
   return (
@@ -17,14 +18,14 @@ function Networking() {
    
      <View style={{display:"flex",paddingTop:10,paddingHorizontal:10,flexDirection:"row",justifyContent:"space-between"}}>
       <Text style={{color:"black",fontSize:18}}>Manage my network.</Text>
-      <Text style={{color:"black",fontSize:18}}>></Text>
+      <AntDesign name="arrowright" size={26} color="gray" />
       </View>
        <View style={styles.hr}/>
  
 {/* section */}
 <View style={styles.invitation}>
- <Text style={{color:"black",fontSize:18}}>Invitations({})</Text>
-  <Text style={{color:"black",fontSize:18}}>></Text>
+ <Text style={{color:"black",fontSize:18}}>Invitations</Text>
+ <AntDesign name="arrowright" size={26} color="gray" />
 </View>
 <Invitations/>
 {/* section */}

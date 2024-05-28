@@ -69,7 +69,7 @@ const styles=StyleSheet.create({
         backgroundColor:"#fff"  
     },
     content:{
-      marginBottom:screenHeight*.1
+      marginBottom:screenHeight*.07
     },
     hr:{
       borderWidth:screenHeight*.007,

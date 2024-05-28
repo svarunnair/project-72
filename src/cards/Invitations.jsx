@@ -3,6 +3,7 @@ import React from 'react'
 import { Dimensions, Image } from 'react-native'
 import { StyleSheet, Text, View } from 'react-native'
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import Ionicons from 'react-native-vector-icons/SimpleLineIcons';
 const data=[
     {
         name:"IBM",
@@ -17,10 +18,14 @@ const data=[
 ]
 
 
+
 function Invitations() {
+
+    const dataLength=data.length
+
+    console.log("lgt....",dataLength)
   return (
     <View style={styles.outer}>
-  
 
     {data.map((item)=>(
         <View style={styles.wrapMap}>
@@ -41,8 +46,8 @@ function Invitations() {
     </View>
 </View>
 <View style={styles.icon}>
-<MaterialIcon name="highlight-off" size={45} color="grey" />
- <MaterialIcon name="check-circle-outline" size={45} color="#84C9FF" />
+  <Ionicons name="close" size={25} color="gray" />
+  <Ionicons name="check" size={25} color="blue" />
 </View>
 
 </View>
@@ -83,7 +88,8 @@ const styles=StyleSheet.create({
         alignItems:"center",
         // gap:screenWidth*.1,
         // borderWidth:1,
-        width:screenWidth*.2
+        width:screenWidth*.2,
+        gap:5
     },
     img:{
         width:screenWidth*.2,

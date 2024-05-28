@@ -36,7 +36,7 @@ function Discover() {
     <Text style={{fontSize:18,color:"black",fontWeight:"600"}}>Discover jobs the smart way</Text>
      <Text style={{color:"grey"}}>Broaden your job search with curated collections</Text>
 
-    <ScrollView horizontal showsHorizontalScrollIndicator={false}  contentContainerStyle={styles.scrollContainer}>
+    <ScrollView horizontal  showsHorizontalScrollIndicator={false}  contentContainerStyle={styles.scrollContainer}>
 
     {data.map((item)=>(
         <View style={styles.box}>

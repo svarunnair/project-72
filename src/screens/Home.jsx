@@ -19,7 +19,7 @@ const screenHeight=Dimensions.get('window').height
 
 const styles=StyleSheet.create({
     container:{
-         marginBottom: screenHeight * 0.07 ,
+         
     }
 })
 
