@@ -32,7 +32,7 @@ function Events() {
              <View style={styles.firstbox}>
               <Text style={styles.head}>{item.name}</Text>
                <Text style={styles.name}>{item.date}</Text>
-               <Text style={styles.name}>{item.vote} attendees</Text>
+               <Text style={styles.nameTwo}>{item.vote} attendees</Text>
               </View>
        <TouchableOpacity style={styles.btn}>
         <Text style={{color:"blue"}}>View</Text>
@@ -70,7 +70,13 @@ const styles=StyleSheet.create({
     },
     name:{
       color:"grey",
-      padding:5
+      padding:0,
+      paddingHorizontal:5,
+    },
+    nameTwo:{
+      color:"grey",
+      paddingHorizontal:5,
+      paddingBottom:10
     },
     head:{
        color:"black",
