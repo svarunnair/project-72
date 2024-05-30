@@ -13,7 +13,7 @@ function Navbar() {
     <View style={styles.container}>
 <Image style={styles.img} source={{uri:"https://i.guim.co.uk/img/media/4f7b8c41aa54314c7b130846ed91331c1b3f9de6/0_0_3744_2247/master/3744.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=13833b08e22edeb98fbca9885f2c6e8a"}}/>
 <View style={styles.inputBox}>
-<Icon name="search" type="ionicons" size={25} />
+<Icon name="search" type="ionicons" size={20} />
 <TextInput style={styles.input} placeholder='Search jobs'  placeholderTextColor="grey" />
 </View>
 
@@ -50,6 +50,7 @@ const styles=StyleSheet.create({
         flexDirection:"row",
         backgroundColor:"#ECF3FA",
         borderRadius:7,
+        paddingHorizontal:6,
         alignItems:"center",
         gap:2,
         width:"75%"

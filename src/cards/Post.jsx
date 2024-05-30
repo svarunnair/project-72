@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import { Dimensions, FlatList, Image, Text, TouchableOpacity, View, StyleSheet } from 'react-native'
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import { Fonts } from '../styles/Font';
 
 const jobData=[
     {
@@ -90,7 +91,7 @@ function Post({ numberOfLines = 2 }) {
             [id]: !prevState[id]
         }))
     }
-const handleFollow = (id) => {
+    const handleFollow = (id) => {
         if (followedItems.includes(id)) {
             setFollowedItems(prevItems => prevItems.filter(itemId => itemId !== id));
         } else {
@@ -105,7 +106,7 @@ const handleFollow = (id) => {
                 <View style={styles.box}>
                     <Image style={styles.profilePic} source={{ uri: item.image }} />
                     <View>
-                        <Text style={{ fontSize: 18, color: "black" }}>{item.name}</Text>
+                        <Text style={{ fontSize: 18, color: "black",fontFamily:Fonts.RobotoLight }}>{item.name}</Text>
                         <Text style={{ color: "grey" }}>{item.designation}</Text>
                     </View>
                 </View>

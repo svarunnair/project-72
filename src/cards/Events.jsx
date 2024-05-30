@@ -20,7 +20,6 @@ const eventData=[
 function Events() {
   return (
     <View style={styles.container}>
-
     <View style={styles.box}>
 
     {eventData.map((item)=>(
@@ -51,14 +50,9 @@ function Events() {
 
 </View>
 
-
-
-
-
     </View>
   )
 }
-
 
 const screenWidth=Dimensions.get("window").width
 const screenHeight=Dimensions.get("window").height
