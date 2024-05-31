@@ -9,15 +9,16 @@ import Notification from './src/screens/Notification';
 import Jobs from './src/screens/Jobs';
 import AddPost from './src/screens/AddPost';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import NotificationStack from './src/routes/MyStack';
+import MyDrawer from './src/routes/DrawerStack';
 
 const Tab = createBottomTabNavigator();
 
+
 function MainRoutes() {
-  
+
   const screenHeight=Dimensions.get("window").height
   const screenWidth=Dimensions.get("window").width
-
-
 
   return (
     <Tab.Navigator screenOptions={{

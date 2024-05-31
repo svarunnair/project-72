@@ -30,7 +30,6 @@ function AddPost() {
         </View>
         </View>
 
-
       </View>
       <TextInput
         style={styles.textInput}

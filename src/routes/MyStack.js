@@ -1,10 +1,11 @@
-import { createStackNavigator } from '@react-navigation/stack';
+
 import MyPosts from '../screens/MyPosts';
 import Notification from '../screens/Notification';
 import Mentions from '../screens/Mentions';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 function NotificationStack() {
   return (

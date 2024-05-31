@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, ScrollView, Text, View, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
 import NavbarTwo from '../components/NavBarTwo';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 const screenWidth = Dimensions.get("window").width;
 const screenHeight = Dimensions.get("window").height;
@@ -64,6 +64,8 @@ const notificationData=[
 
 function Notification() {
     const navigation=useNavigation()
+    const route=useRoute()
+    console.log("RoutePath.........",route.name)
     return (
         <View style={styles.container}>
             <NavbarTwo />
