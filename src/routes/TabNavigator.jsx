@@ -1,20 +1,16 @@
 import React from 'react';
-import { View, StyleSheet, Dimensions } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-import Navbar from './src/components/Navbar';
 import Home from './src/screens/Home';
 import Networking from './src/screens/Networking';
 import Notification from './src/screens/Notification';
 import Jobs from './src/screens/Jobs';
-import AddPost from './src/screens/AddPost';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
-// Bottom Tab Navigator
+
 function MainRoutes() {
   return (
     <Tab.Navigator

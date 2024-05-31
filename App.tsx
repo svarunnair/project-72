@@ -22,17 +22,16 @@ function MainRoutes() {
   return (
     <Tab.Navigator screenOptions={{
         tabBarStyle: {
-          height: screenHeight*.07, 
+          height: screenHeight*.07,
           padding:7
         },
         tabBarLabelStyle: {
           fontSize: 14, 
           color:"grey",
           marginBottom:5,
-          
+
         },
         tabBarIconStyle: {
-          
 
         },
       }}>
@@ -58,7 +57,6 @@ function MainRoutes() {
 function App() {
   return (
     <View style={styles.container}>
-     
       <NavigationContainer>
         <MainRoutes />
       </NavigationContainer>

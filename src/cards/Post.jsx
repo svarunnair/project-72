@@ -91,6 +91,7 @@ function Post({ numberOfLines = 2 }) {
             [id]: !prevState[id]
         }))
     }
+    
     const handleFollow = (id) => {
         if (followedItems.includes(id)) {
             setFollowedItems(prevItems => prevItems.filter(itemId => itemId !== id));
